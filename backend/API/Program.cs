@@ -1,4 +1,5 @@
 using Business;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,9 @@ builder.Services.AddBusinessService();
 
 var app = builder.Build();
 
+using var log = new LoggerConfiguration()
+    .WriteTo.File("Logs/log.txt")
+    .CreateLogger();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
