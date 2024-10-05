@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Database;
+﻿namespace Database;
 
 public class Club
 {
@@ -8,9 +6,9 @@ public class Club
 
     public bool IsPublic { get; set; }
 
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
-    public string Desciption { get; set; }
+    public required string Desciption { get; set; }
 
     public ICollection<ClubMember> ClubMembers { get; set; } = new List<ClubMember>();
 }

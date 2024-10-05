@@ -15,7 +15,7 @@ public class ClubMember : ITrackable
     public DateTime CreatedAt { get; set; }
     public DateTime DeletedAt { get; set; }
 
-    public User User { get; set; }
+    public required User User { get; set; }
 
-    public Club Club { get; set; }
+    public required Club Club { get; set; }
 }
