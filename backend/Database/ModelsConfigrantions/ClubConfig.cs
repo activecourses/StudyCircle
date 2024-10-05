@@ -7,9 +7,9 @@ public class ClubConfig : IEntityTypeConfiguration<Club>
 {
     public void Configure(EntityTypeBuilder<Club> builder)
     {
-        builder.HasKey(c => c.id);
+        builder.HasKey(c => c.Id);
 
-        builder.Property(c => c.id).ValueGeneratedOnAdd().IsRequired();
+        builder.Property(c => c.Id).ValueGeneratedOnAdd().IsRequired();
 
         builder.Property(c => c.IsPublic).HasColumnType("bit").IsRequired();
 

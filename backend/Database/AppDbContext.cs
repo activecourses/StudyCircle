@@ -23,7 +23,7 @@ public class AppDbContext : DbContext
             .AddJsonFile("appsettings.json")
             .Build();
 
-        var connectionString = conf.GetSection("constr").Value;
+        var connectionString = conf.GetSection("ConnectionString").Value;
 
         optionsBuilder.UseSqlServer(connectionString);
     }

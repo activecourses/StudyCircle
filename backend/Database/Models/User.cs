@@ -2,7 +2,7 @@
 
 public class User
 {
-    public int id { get; set; }
+    public int Id { get; set; }
 
     public required string Username { get; set; }
 

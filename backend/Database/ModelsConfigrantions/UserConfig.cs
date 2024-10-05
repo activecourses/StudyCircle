@@ -7,9 +7,9 @@ public class UserConfig : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.HasKey(u => u.id);
+        builder.HasKey(u => u.Id);
 
-        builder.Property(u => u.id).ValueGeneratedOnAdd().IsRequired();
+        builder.Property(u => u.Id).ValueGeneratedOnAdd().IsRequired();
 
         builder.Property(u => u.Username).HasColumnType("varchar(200)").IsRequired();
 
