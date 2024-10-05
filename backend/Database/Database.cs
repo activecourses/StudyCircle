@@ -12,17 +12,5 @@ namespace Database
 
             return services;
         }
-
-        private static void DatabaseConfig(IServiceCollection services)
-        {
-            IConfigurationRoot conf = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
-            var connectionString = conf.GetConnectionString("DefaultConnection") ??
-                                   throw new InvalidOperationException(
-                                       "conndection string 'DefaultConnection' not found'");
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(connectionString));
-        }
     }
 }
