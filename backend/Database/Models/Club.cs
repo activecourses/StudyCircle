@@ -6,9 +6,9 @@ public class Club
 
     public bool IsPublic { get; set; }
 
-    public required string Name { get; set; }
+    public string Name { get; set; } = null!;
 
-    public required string Desciption { get; set; }
+    public string Desciption { get; set; } = null!;
 
-    public ICollection<ClubMember> ClubMembers { get; set; } = new List<ClubMember>();
+    public virtual ICollection<ClubMember> ClubMembers { get; set; } = new List<ClubMember>();
 }

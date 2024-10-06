@@ -11,10 +11,6 @@ public class AppDbContext : DbContext
     {
     }
 
-    public AppDbContext()
-    {
-    }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
@@ -23,7 +19,7 @@ public class AppDbContext : DbContext
             .AddJsonFile("appsettings.json")
             .Build();
 
-        var connectionString = conf.GetSection("ConnectionString").Value;
+        var connectionString = conf.GetConnectionString("DefaultConnection");
 
         optionsBuilder.UseSqlServer(connectionString);
     }
@@ -39,10 +35,5 @@ public class AppDbContext : DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
 
-        new UserConfig().Configure(modelBuilder.Entity<User>());
-
-        new ClubConfig().Configure(modelBuilder.Entity<Club>());
-
-        new ClubMemberConfig().Configure(modelBuilder.Entity<ClubMember>());
     }
 }
