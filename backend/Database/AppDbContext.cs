@@ -15,11 +15,11 @@ public class AppDbContext : DbContext
     {
         base.OnConfiguring(optionsBuilder);
 
-        IConfigurationRoot conf = new ConfigurationBuilder()
+        IConfigurationRoot config = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
 
-        var connectionString = conf.GetConnectionString("DefaultConnection");
+        var connectionString = config.GetConnectionString("DefaultConnection");
 
         optionsBuilder.UseSqlServer(connectionString);
     }
