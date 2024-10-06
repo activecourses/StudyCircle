@@ -18,21 +18,9 @@ public class ClubMemberConfig : IEntityTypeConfiguration<ClubMember>
         builder.Property(c => c.IsModerator).HasColumnType("bit");
 
         builder.Property(c => c.IsOwner).HasColumnType("bit");
-
-
-        // Relations
-        builder.HasOne(m => m.User)
-            .WithMany(u => u.ClubMember)
-            .HasForeignKey(m => m.UserId)
-            .IsRequired();
-
+        
         builder.HasIndex(m => m.UserId).IsUnique();
-
-        builder.HasOne(cm => cm.Club)
-            .WithMany(c => c.ClubMembers)
-            .HasForeignKey(m => m.ClubId)
-            .IsRequired();
-
+        
         builder.HasIndex(m => m.ClubId).IsUnique();
     }
 }
