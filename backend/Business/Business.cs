@@ -5,11 +5,9 @@ namespace Business
 {
     public static class Business
     {
-        public static IServiceCollection AddBusinessService(this IServiceCollection services)
+        public static void AddBusinessService(this IServiceCollection services)
         {
             services.AddDatabaseService();
-
-            return services;
         }
     }
 }
